@@ -6,7 +6,7 @@ int main(int argc, char* argv[])
 	Curses_Viewer view;
 	Board board;
 
-	board.loadPositionIntoRow("2Kpp2q",3);
+	board.loadPosition("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR");
 	view.init();
 	view.draw_board(board);
 	getchar();

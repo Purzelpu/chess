@@ -1,6 +1,8 @@
 #include <ctype.h>
 #include "Board.hpp"
 #include <iostream>
+#include <string>
+#include <sstream>
 
 
 Board::Board()
@@ -14,6 +16,15 @@ Board::Board()
 
 void Board::loadPosition(const std::string& fenPos)
 {
+	int row = 0;
+	std::string temp;
+	std::istringstream input(fenPos);
+	while(!input.eof() && row<8)
+	{
+		getline(input, temp, '/');
+		loadPositionIntoRow(temp,row++);
+	}
+
 }
 
 void Board::loadPositionIntoRow(const std::string& fen, int row)
