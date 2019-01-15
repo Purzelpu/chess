@@ -11,5 +11,5 @@ class Board
 	Board();
 	void loadPosition(const std::string&);
 	void loadPositionIntoRow(const std::string&, int);
-	std::optional<Figure> operator[](const Coordinate c);
+	std::optional<Figure>& operator[](const Coordinate c);
 };

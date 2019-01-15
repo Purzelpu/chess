@@ -58,3 +58,22 @@ void Controller::loadSituation(const std::string& FENString)
 		round = 0;
 	}
 }
+
+void Controller::switchPlayer()
+{
+	if(activePlayer == 1)
+	{
+		round++;
+	}
+	activePlayer = (activePlayer+1)%2;
+}
+
+void Controller::move(Coordinate from, Coordinate to)
+{
+	if(board[from])
+	{
+		board[to].emplace(*board[from]);
+		board[from].reset();
+	}
+	switchPlayer();
+}

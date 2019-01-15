@@ -12,6 +12,10 @@ class Controller
 		std::optional<Coordinate> enpassant;
 		int halfmoves;
 		int round;
+
 		Controller();
+
 		void loadSituation(const std::string&);
+		void switchPlayer();
+		void move(Coordinate,Coordinate);
 };
