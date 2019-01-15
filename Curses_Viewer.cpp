@@ -4,6 +4,7 @@
 void Curses_Viewer::init()
 {
 	initscr();
+	boardView = newwin(9,9,5,5);
 	curs_set(0);
 	start_color();
 	init_pair(1,COLOR_BLACK, COLOR_WHITE);
@@ -12,28 +13,30 @@ void Curses_Viewer::init()
 
 void Curses_Viewer::end()
 {
+	delwin(boardView);
 	endwin();
 }
 
 void Curses_Viewer::draw_board(Board& board)
 {
-	mvaddstr(9,10,"abcdefgh");
+	mvwaddstr(boardView,0,1,"abcdefgh");
 	for(unsigned int x=0;x<8;++x)
 	{
-		mvaddch(x+10,9,56-x);
+		mvwaddch(boardView,x+1,0,56-x);
 		for(unsigned int y=0;y<8;++y)
 		{
-			attron(COLOR_PAIR(((x+y)%2)+1));
+			wattron(boardView,COLOR_PAIR(((x+y)%2)+1));
 			if(board.figures[x][y])
 			{
-				mvaddch(y+10,x+10,board.figures[x][y]->symbol);
+				mvwaddch(boardView,y+1,x+1,board.figures[x][y]->symbol);
 			}
 			else
 			{
-				mvaddch(y+10,x+10,' ');
+				mvwaddch(boardView,y+1,x+1,' ');
 			}
-			refresh();
-			attroff(COLOR_PAIR(((x+y)%2)+1));
+			wattroff(boardView,COLOR_PAIR(((x+y)%2)+1));
 		}
 	}
+	refresh();
+	wrefresh(boardView);
 }

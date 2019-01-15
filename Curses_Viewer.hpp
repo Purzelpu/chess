@@ -1,3 +1,4 @@
+#include <ncurses.h>
 #include "Board.hpp"
 
 class Curses_Viewer
@@ -6,4 +7,5 @@ class Curses_Viewer
 		void init();
 		void end();
 		void draw_board(Board&);
+		WINDOW* boardView;
 };
