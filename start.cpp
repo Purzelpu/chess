@@ -1,3 +1,4 @@
+#include <iostream>
 #include <stdio.h>
 #include "Curses_Viewer.hpp"
 
@@ -12,5 +13,7 @@ int main(int argc, char* argv[])
 	getchar();
 
 	view.end();
+
+	std::cout << board["a2"]->symbol << std::endl;
 	return 0;
 }

@@ -43,3 +43,8 @@ void Board::loadPositionIntoRow(const std::string& fen, int row)
 		}
 	}
 }
+
+Figure* Board::operator[](const Coordinate c)
+{
+	return figures[c.column-'a'][7-c.row];
+}
