@@ -10,7 +10,7 @@ Board::Board()
 	for(int i=0;i<8;++i)
 		for(int j=0;j<8;++j)
 		{
-			figures[i][j] = nullptr;
+			figures[i][j].reset();
 		}
 }
 
@@ -39,12 +39,12 @@ void Board::loadPositionIntoRow(const std::string& fen, int row)
 		else
 		{
 			//std::cout << "Adding " << c << "@" << pos << std::endl;
-			figures[pos++][row] = new Figure(c);
+			figures[pos++][row].emplace(Figure(c));
 		}
 	}
 }
 
-Figure* Board::operator[](const Coordinate c)
+std::optional<Figure> Board::operator[](const Coordinate c)
 {
 	return figures[c.column-'a'][7-c.row];
 }

@@ -24,13 +24,13 @@ void Curses_Viewer::draw_board(Board& board)
 		for(unsigned int y=0;y<8;++y)
 		{
 			attron(COLOR_PAIR(((x+y)%2)+1));
-			if(board.figures[x][y] == nullptr)
+			if(board.figures[x][y])
 			{
-				mvaddch(y+10,x+10,' ');
+				mvaddch(y+10,x+10,board.figures[x][y]->symbol);
 			}
 			else
 			{
-				mvaddch(y+10,x+10,board.figures[x][y] -> symbol);
+				mvaddch(y+10,x+10,' ');
 			}
 			refresh();
 			attroff(COLOR_PAIR(((x+y)%2)+1));
