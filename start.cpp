@@ -1,19 +1,19 @@
 #include <iostream>
 #include <stdio.h>
 #include "Curses_Viewer.hpp"
+#include "Controller.hpp"
 
 int main(int argc, char* argv[])
 {
 	Curses_Viewer view;
-	Board board;
+	Controller controller;
 
-	board.loadPosition("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR");
 	view.init();
-	view.draw_board(board);
+	view.draw_board(controller.board);
 	getchar();
 
 	view.end();
 
-	std::cout << board["a2"]->symbol << std::endl;
+	std::cout << controller.board["a2"]->symbol << std::endl;
 	return 0;
 }

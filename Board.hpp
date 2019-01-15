@@ -1,3 +1,4 @@
+#pragma once
 #include "Figures.hpp"
 #include "Coordinate.hpp"
 #include <string>
