@@ -1,4 +1,4 @@
-#include <curses.h>
+#include <ncurses.h>
 #include "Curses_Viewer.hpp"
 
 void Curses_Viewer::init()
