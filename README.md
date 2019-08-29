@@ -1,8 +1,8 @@
 # chess
 A simple chess board
 
-##Implemented Features
+## Implemented Features
 * moving figures around
 
-##Missing Features
+## Missing Features
 * any kind of rule enforcement
