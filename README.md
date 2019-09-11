@@ -2,7 +2,8 @@
 A simple chess board
 
 ## Implemented Features
-* moving figures around
+* showing the board
 
 ## Missing Features
+* moving figures around
 * any kind of rule enforcement
